@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+*{
+	 margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  border: none;
+  }
+
+label{
+	color:white;
+	font-size: 18px;
+}
+h1{
+	font-size:48px;
+	padding-bottom:20px;
+}
+.background-image {
+  background-image: url('../Images/img2.jpg');
+  position: relative;
+  background-size:100%;
+  background-position: center center;
+  height: 100vh;
+}
+.background-image3 {
+  background-image: url('../Images/img3.jpg');
+  position: relative;
+  background-size:100%;
+  background-position: center center;
+  height: 100vh;
+}
+.background-image::before {
+ 
+  display: block; 
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(255, 255, 255, 0.3); /* White background with 70% opacity */
+  pointer-events: none; /* Allow clicks to go through the pseudo-element */
+}
+.loginLabel{
+	color:blue;
+}
+.custom-card {
+      margin: 350px auto;
+     
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.5); 
+      border: none;
+      border-radius: 15px;
+    }
+ .center-text {
+      text-align: center;
+    }
+   
+  .header-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-container .btn {
+      width: 150px;
+    }

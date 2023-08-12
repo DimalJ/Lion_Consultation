@@ -24,7 +24,6 @@
              
               
                 <c:forEach items="${users}" var="user">
-                <script>console.log("aaaaaaaaaaa" );</script>
                 <tr>
                         <td>${user.fName}</td>
                         <td>${user.lName}</td>

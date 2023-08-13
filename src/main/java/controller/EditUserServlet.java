@@ -1,45 +1,52 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AdminViewUserDao;
+import dao.EditUserDao;
 import model.User;
 
 /**
- * Servlet implementation class AdminViewUserServlet
+ * Servlet implementation class EditUserServlet
  */
-@WebServlet("/AdminViewUserServlet")
-public class AdminViewUserServlet extends HttpServlet {
+@WebServlet("/EditUserServlet")
+public class EditUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AdminViewUserDao adminViewUserDao;
-    
-	
+	private EditUserDao editUserDao;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminViewUserServlet() {
-        this.adminViewUserDao=new AdminViewUserDao();
+    public EditUserServlet() {
+       this.editUserDao= new EditUserDao();
         
     }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String type = request.getParameter("type");
-		ArrayList<User> users = adminViewUserDao.getUsersByType(type);
-        request.setAttribute("users", users);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
+		String username=request.getParameter("editUsername");
+		System.out.println(username);
+		User user=editUserDao.getUser(username);
+		System.out.println(user.getfName());
+		request.setAttribute("user", user);
+	    request.getRequestDispatcher("edit.jsp").forward(request, response);
+			
 		
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
 	}
+
 }

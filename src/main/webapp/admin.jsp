@@ -69,11 +69,8 @@
                     <th>Contact</th>
                 </tr>
             </thead>
-            <tbody>
-                <script>console.log("aaaaaaaaaaa" ${users});</script>
-                
-                <c:forEach items="${users}" var="user">
-                <script>console.log("aaaaaaaaaaa" );</script>
+            <tbody>              
+                <c:forEach items="${users}" var="user">             
                 <tr>
                         <td>${user.fName}</td>
                         <td>${user.lName}</td>
@@ -81,9 +78,9 @@
                         <td>${user.email}</td>
                         <td>${user.contact}</td>
                          <td>
-                    	<a href="edit?username=<c:out value='${user.username}' />">Edit</a>
+                    	<a href="edit.jsp?username=${user.username}">Edit</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	<a href="delete?username=<c:out value='${user.username}' />">Delete</a>                    	
+                    	                	
                     </td>
                     </tr>
                 </c:forEach>

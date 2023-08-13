@@ -46,4 +46,10 @@
 <servlet-name>ConsultantAvailabilityServlet</servlet-name>
 <servlet-class>controller.ConsultantAvailabilityServlet</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>EditUserServlet</display-name>
+<servlet-name>EditUserServlet</servlet-name>
+<servlet-class>controller.EditUserServlet</servlet-class>
+</servlet>
 </web-app>

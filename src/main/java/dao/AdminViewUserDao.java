@@ -9,10 +9,8 @@ import model.User;
 
 public class AdminViewUserDao {
 
-	String updateSQL= "UPDATE users SET fname=?, lname=?, password=?, email=?, dob=?, gender=?, contact=?, type=? WHERE username=?";
+	
 	String selectUsers = "SELECT fname, lname, username, email, contact FROM users WHERE type = ?";
-	String deleteUsers = "DELETE from users WHERE username=?";
-			
 	
 	 public ArrayList<User> getUsersByType(String userType) {
 	        ArrayList<User> usersList = new ArrayList<User>();

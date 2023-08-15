@@ -35,27 +35,36 @@
            <a class="nav-link" href="LogoutServlet">Logout</a>
         </div>
     </nav>
-<h1>Admin</h1>
-<a href="adminAddUser.jsp"><button type="submit" id="addUser" name="addUser">Add User</button></a>
-
-
+ 
+ <div  class="message">
+ <h3>Welcome to Lion Consultation,<br></h3>
+	${Message}
+</div>
+ 
  <div class="container">
+ <div>
+ <a href="adminAddUser.jsp"><button type="submit"  class="btn btn-success btn-lg" id="addUser" name="addUser">Add User</button></a>
+ </div>
         <h2>View Users</h2>
          <form action="<%= request.getServletContext().getContextPath()%>/AdminViewUserServlet" method="post">
-          <div class="form-row">
-	           
-                <div class="form-group col-md-6">
-                    <label for="type">User Type</label>
-                    <select class="form-control" id="type" name="type" required>
+         
+        
+		  	<div class="input-group mb-3">
+		  		 <select class="form-control" id="type" name="type" required>
                         <option value="" selected disabled>Select User Type</option>
                         <option value="jobSeeker">Job Seeker</option>
                         <option value="consultant">Consultant</option>
                         <option value="admin">Admin</option>
                     </select>
-               </div>
-               
-          </div>  
-          <button type="submit" class="btn btn-dark btn-lg">Search</button>
+		  	
+		 
+		  <div class="form-group col-md-6">
+		  		<div class="input-group-append">
+		    	 <button type="submit" class="btn btn-dark">Search</button>
+		  		</div>
+		  	</div>
+		  	 </div> 
+		 
          </form>
         
 

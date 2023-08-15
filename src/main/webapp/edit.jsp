@@ -53,8 +53,8 @@
   
    
     <div class="container mt-5">
-        <h1>Registration Form</h1>
-        <form action="<%= request.getServletContext().getContextPath()%>/" method="post">
+        <h1>Update Form</h1>
+        <form action="<%= request.getServletContext().getContextPath()%>/UpdateUserServlet" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="firstName">First Name</label>
@@ -113,11 +113,26 @@
                     </select>
                 </div>
             </div>  
-           	<button type="button" class="btn btn-outline-warning btn-lg">Update</button>
-            <button type="button" class="btn btn-outline-danger btn-lg">Delete</button>
+           	<button type="submit" class="btn btn-outline-warning btn-lg">Update</button>
+           
             
         </form>
     </div>
+    <div class="container mt-5">
+	   <form action="<%= request.getServletContext().getContextPath()%>/DeleteUserServlet" method="post">
+	   	 <div class="form-group col-md-6">
+		  	<div class="input-group mb-3">
+		  		<input type="text" class="form-control" id="delUsername" name="delUsername" value="${user.username}" required>
+		  	
+		  <div class="form-group col-md-6">
+		  		<div class="input-group-append">
+		    	 <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
+		  		</div>
+		  	</div>
+		  	 </div> 
+		 </div>
+	    </form>
+   </div>
 </body>
 </html>
 

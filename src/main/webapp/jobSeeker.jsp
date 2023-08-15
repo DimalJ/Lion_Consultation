@@ -34,5 +34,7 @@
         </div>
     </nav>
 <h1>Success</h1>
+
+<a href="addAppointment.jsp">Click Here</a>
 </body>
 </html>

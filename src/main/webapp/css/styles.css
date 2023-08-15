@@ -44,6 +44,10 @@ h1{
 .loginLabel{
 	color:blue;
 }
+.message{
+	margin:50px;
+}
+
 .custom-card {
       margin: 350px auto;
      

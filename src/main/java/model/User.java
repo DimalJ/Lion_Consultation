@@ -26,6 +26,11 @@ public class User {
 		this.contact=contact;
 		
 	}
+	public User(String fName, String username, String gender) {
+		this.fName=fName;
+		this.username=username;
+		this.gender=gender;
+	}
 	public String getUsername() {
 		return username;
 	}

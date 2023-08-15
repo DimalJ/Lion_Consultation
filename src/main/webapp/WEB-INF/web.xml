@@ -64,4 +64,10 @@
 <servlet-name>DeleteUserServlet</servlet-name>
 <servlet-class>controller.DeleteUserServlet</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>CheckConsultServlet</display-name>
+<servlet-name>CheckConsultServlet</servlet-name>
+<servlet-class>controller.CheckConsultServlet</servlet-class>
+</servlet>
 </web-app>

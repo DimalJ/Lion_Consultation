@@ -16,11 +16,11 @@
         <form action="<%= request.getServletContext().getContextPath()%>/CheckConsultServlet" method="post">
             <div class="form-group">
                 <label for="appointmentDate">Select Date:</label>
-                <input type="date" class="form-control" name="appointmentDate" required>
+                <input type="date" class="form-control" name="appointmentDate" id="appointmentDate" value="${date}" required>
             </div>
             <div class="form-group">
                 <label for="appointmentTime">Select Time:</label>
-                <input type="time" class="form-control" name="appointmentTime" required>
+                <input type="time" class="form-control" name="appointmentTime" id="appointmentTime" value="${time}" required>
             </div>
             <button type="submit" class="btn btn-primary">Check Availability</button>
         </form>
@@ -29,7 +29,7 @@
    <div class="container">
         <h2>Available Consultants</h2>
         
-        <form action="BookAppointmentServlet" method="post">
+        <form action="<%= request.getServletContext().getContextPath()%>/AddAppointmentServlet" method="post">
             <div class="form-group">
                 <label for="consultant">Select Consultant:</label>
                 <select class="form-control" name="consultant" required>

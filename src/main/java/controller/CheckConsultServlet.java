@@ -32,12 +32,14 @@ public class CheckConsultServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String appointmentDate = request.getParameter("appointmentDate");
+		 	String appointmentDate = request.getParameter("appointmentDate");
 	        String appointmentTime = request.getParameter("appointmentTime");
 
 	        List<User> availableConsultants = addAppointmentDao.getAvailableConsultants(appointmentDate, appointmentTime);
-	        System.out.println(availableConsultants);
+	 
 	        request.setAttribute("availableConsultants", availableConsultants);
+	        request.setAttribute("time", appointmentTime);
+	        request.setAttribute("date", appointmentDate);
   
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("addAppointment.jsp");
 	        dispatcher.forward(request, response);

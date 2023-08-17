@@ -48,11 +48,14 @@ public class ConsultantAvailabilityServlet extends HttpServlet {
 		}
 
         if (added) {
-            response.sendRedirect("consultants.jsp");
-            System.out.println(username+" "+startTime+" " + finishTime);
+           
+            request.setAttribute("Message","New time slot added");
+			request.getRequestDispatcher("consultants.jsp").forward(request, response);
+           
         } else {
-            response.sendRedirect("error.jsp");
-            System.out.println(username+" "+startTime);
+           
+            request.setAttribute("errorMessage","Time Slot not added");
+			request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 	

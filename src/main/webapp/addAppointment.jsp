@@ -11,35 +11,32 @@
    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+${Message}
 <div class="container">
         <h2>Book an Appointment</h2>
         <form action="<%= request.getServletContext().getContextPath()%>/CheckConsultServlet" method="post">
             <div class="form-group">
                 <label for="appointmentDate">Select Date:</label>
-                <input type="date" class="form-control" name="appointmentDate" required>
+                <input type="date" class="form-control" name="appointmentDate" id="appointmentDate" value="${date}" required>
             </div>
             <div class="form-group">
                 <label for="appointmentTime">Select Time:</label>
-                <input type="time" class="form-control" name="appointmentTime" required>
+                <input type="time" class="form-control" name="appointmentTime" id="appointmentTime" value="${time}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Check Availability</button>
-        </form>
-    </div>
-    
-   <div class="container">
-        <h2>Available Consultants</h2>
-        
-        <form action="BookAppointmentServlet" method="post">
+            <button type="submit" class="btn btn-primary" name="action" value="checkAvailability">Check Availability</button>
+            <h2>Available Consultants</h2>
             <div class="form-group">
                 <label for="consultant">Select Consultant:</label>
-                <select class="form-control" name="consultant" required>
+                <select class="form-control" name="consultant">
                     <c:forEach var="consultant" items="${availableConsultants}">
                         <option value="${consultant.username}">${consultant.fName} - ${consultant.gender}</option>
                     </c:forEach>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Book Appointment</button>
+            <button type="submit" class="btn btn-primary" name="action" value="addAppointment">Book Appointment</button>
         </form>
     </div>
+    
+  
 </body>
 </html>

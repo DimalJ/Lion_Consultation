@@ -15,7 +15,8 @@ public class AddAppointmentDao {
 	        List<User> availableConsultants = new ArrayList<>();
 	        String sql = "SELECT * FROM consultant_availability WHERE available_date = ? AND start_time <= ? AND finish_time >= ?";
 
-	        try (Connection conn = DbConnection.getConnection();
+	        Connection conn = DbConnection.getConnection();
+	        try (
 	             PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
 		            preparedStatement.setString(1, appointmentDate);
 		            preparedStatement.setString(2, appointmentTime);
@@ -46,4 +47,28 @@ public class AddAppointmentDao {
 
 	        return availableConsultants;
 	    }
+	 
+	 public boolean addAppointment(String seekerUsername, String consultUsername,  String date, String time ) {
+		 String sql= "INSERT INTO appointments "
+					+ "( seeker_username, consult_username, appointment_date, appointment_time)"
+					+ "VALUES"
+					+ "(?, ?, ?, ?)" ;
+		 Connection conn = DbConnection.getConnection();
+		 try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1,seekerUsername);
+			ps.setString(2, consultUsername);
+			ps.setString(3, date);
+			ps.setString(4, time);
+			
+			int rowAffected= ps.executeUpdate();
+			return rowAffected>0;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return false;
+		 
+	 }
 }

@@ -33,8 +33,8 @@
            <a class="nav-link" href="LogoutServlet">Logout</a>
         </div>
     </nav>
-<h1>Success</h1>
-
+<h1>Success</h1><br>
+ ${Message}
 <a href="addAppointment.jsp">Click Here</a>
 </body>
 </html>

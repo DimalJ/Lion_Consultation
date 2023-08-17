@@ -70,4 +70,10 @@
 <servlet-name>CheckConsultServlet</servlet-name>
 <servlet-class>controller.CheckConsultServlet</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>AddAppointmentServlet</display-name>
+<servlet-name>AddAppointmentServlet</servlet-name>
+<servlet-class>controller.AddAppointmentServlet</servlet-class>
+</servlet>
 </web-app>

@@ -76,4 +76,10 @@
 <servlet-name>AddAppointmentServlet</servlet-name>
 <servlet-class>controller.AddAppointmentServlet</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>ViewAppointmentListServlet</display-name>
+<servlet-name>ViewAppointmentListServlet</servlet-name>
+<servlet-class>controller.ViewAppointmentListServlet</servlet-class>
+</servlet>
 </web-app>

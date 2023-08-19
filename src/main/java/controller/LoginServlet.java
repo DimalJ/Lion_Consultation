@@ -51,10 +51,10 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("error.jsp");
                 }
             } else {
-                response.sendRedirect("error.html");
+                response.sendRedirect("error.jsp");
             }
         } else {
-            response.sendRedirect("admin.jsp");
+            response.sendRedirect("error.jsp");
         }
     }
 	

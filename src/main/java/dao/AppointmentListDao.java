@@ -12,13 +12,14 @@ import model.Appointment;
 public class AppointmentListDao {
 
 	
-	String selectAppointment = "SELECT * FROM appointments WHERE seeker_username = ?";
+	String selectSeekerAppointment = "SELECT * FROM appointments WHERE seeker_username = ?";
+	String selectConsultAppointment = "SELECT * FROM appointments WHERE consult_username = ?";
 	
 	 public ArrayList<Appointment> getAppointmentList(String username) {
 	        ArrayList<Appointment> appointmentList = new ArrayList<Appointment>();
 	        try {
 	        	Connection conn=DbConnection.getConnection();
-	            PreparedStatement pstmt = conn.prepareStatement(selectAppointment);
+	            PreparedStatement pstmt = conn.prepareStatement(selectSeekerAppointment);
 	            pstmt.setString(1, username);
 	            ResultSet rs = pstmt.executeQuery();
 	            while (rs.next()) {
@@ -26,8 +27,45 @@ public class AppointmentListDao {
 	               int id=rs.getInt("id");
 	               String consult_username=rs.getString("consult_username");
 	               String seeker_username=rs.getString("seeker_username");
-	               String date= rs.getString("date");
-	               String time = rs.getString("time");
+	               String date= rs.getString("appointment_date");
+	               String time = rs.getString("appointment_time");
+	               String consultFname=getFname(consult_username);
+	               String seekerFname=getFname(seeker_username);
+	               
+	               appointment.setId(id);
+	               appointment.setConsultUsername(consult_username);
+	               appointment.setConsultFname(consultFname);
+	               appointment.setSeekerUsername(seeker_username);
+	               appointment.setSeekerFname(seekerFname);
+	               appointment.setDate(date);
+	               appointment.setTime(time);
+	               
+	               appointmentList.add(appointment);
+	               
+	            }
+	            rs.close();
+	            pstmt.close();
+	            conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return appointmentList;
+	    }
+	 
+	 public ArrayList<Appointment> getConsultAppointmentList(String username) {
+	        ArrayList<Appointment> appointmentList = new ArrayList<Appointment>();
+	        try {
+	        	Connection conn=DbConnection.getConnection();
+	            PreparedStatement pstmt = conn.prepareStatement(selectConsultAppointment);
+	            pstmt.setString(1, username);
+	            ResultSet rs = pstmt.executeQuery();
+	            while (rs.next()) {
+	               Appointment appointment= new Appointment();
+	               int id=rs.getInt("id");
+	               String consult_username=rs.getString("consult_username");
+	               String seeker_username=rs.getString("seeker_username");
+	               String date= rs.getString("appointment_date");
+	               String time = rs.getString("appointment_time");
 	               String consultFname=getFname(consult_username);
 	               String seekerFname=getFname(seeker_username);
 	               

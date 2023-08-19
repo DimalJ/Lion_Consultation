@@ -8,8 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import dao.AppointmentListDao;
 import model.Appointment;
 
@@ -36,10 +34,10 @@ public class ViewAppointmentListServlet extends HttpServlet {
         String seeker_username = request.getParameter("username");
         System.out.println(seeker_username);
 		ArrayList<Appointment> appointmentList = appointmentListDao.getAppointmentList(seeker_username);
+		System.out.println(appointmentList);
         request.setAttribute("appointmentList", appointmentList);
-        HttpSession session = request.getSession();
-        session.setAttribute("username", seeker_username);
-        //session.setAttribute("userType", userType);
+        
+       
         request.getRequestDispatcher("seekerAppointmentList.jsp").forward(request, response);
 	}
 

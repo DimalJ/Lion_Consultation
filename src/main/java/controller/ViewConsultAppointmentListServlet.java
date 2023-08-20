@@ -29,7 +29,7 @@ public class ViewConsultAppointmentListServlet extends HttpServlet {
 		 	String consult_username = request.getParameter("username");
 	        System.out.println(consult_username);
 			ArrayList<Appointment> appointmentList = appointmentListDao.getConsultAppointmentList(consult_username);
-			System.out.println(appointmentList);
+			
 	        request.setAttribute("appointmentList", appointmentList);
 	        request.getRequestDispatcher("consultAppointmentList.jsp").forward(request, response);
 	}

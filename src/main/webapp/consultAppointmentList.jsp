@@ -33,6 +33,8 @@
            <a class="nav-link" href="LogoutServlet">Logout</a>
         </div>
     </nav>
+    
+    ${Message }
 <div class="container" >
  <table class="table table-bordered">
             <thead>
@@ -53,7 +55,7 @@
                         <td>${appointment.time}</td>
                         
                          <td>
-                    	<a href="edit.jsp?username=${appointment.id}">Edit</a>
+                    	<a href="DoneAppointment.jsp?id=${appointment.id}&seekerUsername=${appointment.seekerUsername}&consultUsername=${appointment.consultUsername}&date=${appointment.date}" target="blank">Start</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
                     	                	
                     </td>

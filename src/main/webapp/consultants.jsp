@@ -71,7 +71,7 @@
         </div>
     </nav>
 <h1>Consultants</h1>
-
+${Message}
 <div class="container">
         <h2>Add Available Time</h2>
         <form action="<%= request.getServletContext().getContextPath()%>/ConsultantAvailabilityServlet" method="post">
@@ -105,5 +105,7 @@
             <button type="submit" class="btn btn-primary">Add Availability</button>
         </form>
     </div>
+    
+    <a href="<%= request.getServletContext().getContextPath()%>/ViewConsultAppointmentListServlet?username=${sessionScope.username}">Click 22Here</a>
 </body>
 </html>

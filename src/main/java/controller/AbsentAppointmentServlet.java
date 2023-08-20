@@ -1,28 +1,26 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dao.AppointmentListDao;
-import model.Appointment;
+
+import dao.AppointmentsEditDao;
 
 /**
- * Servlet implementation class ViewAppointmentList
+ * Servlet implementation class AbsentAppointmentServlet
  */
-@WebServlet("/ViewAppointmentListServlet")
-public class ViewAppointmentListServlet extends HttpServlet {
+@WebServlet("/AbsentAppointmentServlet")
+public class AbsentAppointmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AppointmentListDao appointmentListDao;
+    private AppointmentsEditDao appointmentEditDao;   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAppointmentListServlet() {
-        this.appointmentListDao = new AppointmentListDao();
+    public AbsentAppointmentServlet() {
+        this.appointmentEditDao = new AppointmentsEditDao();
         // TODO Auto-generated constructor stub
     }
 
@@ -30,15 +28,17 @@ public class ViewAppointmentListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int apponitmentId = Integer.parseInt(request.getParameter("id"));
 		
-        String seeker_username = request.getParameter("username");
-        System.out.println(seeker_username);
-		ArrayList<Appointment> appointmentList = appointmentListDao.getAppointmentList(seeker_username);
-		System.out.println(appointmentList);
-        request.setAttribute("appointmentList", appointmentList);
-        
-       
-        request.getRequestDispatcher("seekerAppointmentList.jsp").forward(request, response);
+		boolean affected=appointmentEditDao.removeAppointment(apponitmentId);
+		if(affected) {
+			 request.setAttribute("Message","Appointment Removed");
+			 request.getRequestDispatcher("consulAppointmentList.jsp").forward(request, response);
+		}
+		else {
+			 request.setAttribute("Message","Appointment not Removed");
+			 request.getRequestDispatcher("consulAppointmentList.jsp").forward(request, response);
+		}
 	}
 
 	/**

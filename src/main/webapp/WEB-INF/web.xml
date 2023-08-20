@@ -78,8 +78,14 @@
 </servlet>
 <servlet>
 <description></description>
-<display-name>ViewAppointmentListServlet</display-name>
-<servlet-name>ViewAppointmentListServlet</servlet-name>
-<servlet-class>controller.ViewAppointmentListServlet</servlet-class>
+<display-name>ViewConsultAppointmentListServlet</display-name>
+<servlet-name>ViewConsultAppointmentListServlet</servlet-name>
+<servlet-class>controller.ViewConsultAppointmentListServlet</servlet-class>
+</servlet>
+<servlet>
+<description></description>
+<display-name>DoneAppointmentServlet</display-name>
+<servlet-name>DoneAppointmentServlet</servlet-name>
+<servlet-class>controller.DoneAppointmentServlet</servlet-class>
 </servlet>
 </web-app>

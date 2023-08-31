@@ -59,22 +59,20 @@ public class AdminAddUserServlet extends HttpServlet {
 		try {
 			
 			 usernameExits=userDao.usernameCheck(user.getUsername());
-			 if(usernameExits=false) {
+			 if(usernameExits=true) {
 				userDao.registration(user);
+				response.sendRedirect("admin.jsp");
 			 }
 			 else {
 				 request.setAttribute("errorMessage","Username Already exist");
 				 request.getRequestDispatcher("error.jsp").forward(request, response);
 			 }
-			 
-			 userDao.registration(user);
+			
 	        } catch (Exception e) {
 	           
 	            e.printStackTrace();
 	        }
 
-	        response.sendRedirect("admin.jsp");
-		
 	}
 
 	/**

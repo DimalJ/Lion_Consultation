@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,21 +30,34 @@ public class DoneAppointmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//int apponitmentId = Integer.parseInt(request.getParameter("id"));
+		int apponitmentId = Integer.parseInt(request.getParameter("id"));
 		String seeker_username=request.getParameter("seekerUsername");
-		System.out.println(seeker_username);
 		String consult_username=request.getParameter("consultUsername");
 		String date=request.getParameter("date");
 		String startTime = request.getParameter("startTime");
-        String endTime = request.getParameter("endTime");
+		
+		LocalTime currentTime = LocalTime.now();
+        int hours = currentTime.getHour();
+        int minutes = currentTime.getMinute();
+
+        String formattedHours = (hours < 10) ? "0" + hours : String.valueOf(hours);
+        String formattedMinutes = (minutes < 10) ? "0" + minutes : String.valueOf(minutes);
+
+        String endTime = formattedHours + ":" + formattedMinutes;
+        
         
         
         
         boolean done= appointmentEditDao.addAppointment(seeker_username, consult_username, date, startTime, endTime);
+        System.out.println(date);
+        System.out.println(startTime);
+        System.out.println(endTime);
+        
         if ( done==true) {
         	 request.setAttribute("Message","Appointment finished");
+        	 
 			 request.getRequestDispatcher("consultants.jsp").forward(request, response);
-			 //appointmentEditDao.removeAppointment(apponitmentId);
+			 appointmentEditDao.removeAppointment(apponitmentId);
         }
         else {
         	 request.setAttribute("Message","Appointment not finished");

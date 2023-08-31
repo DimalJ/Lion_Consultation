@@ -24,10 +24,10 @@ public class UserDao {
 			ps.setString(1, username);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()) {
-				usernameExits=true;
+				usernameExits=false;
 			}
 			else {
-				usernameExits=false;
+				usernameExits=true;
 			}
 			
 			

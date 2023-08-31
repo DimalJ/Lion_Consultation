@@ -8,29 +8,7 @@
 <title>Appointment Edit</title>
 	<link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <script>
-        const startButton = document.getElementById("startButton");
-        const endButton = document.getElementById("endButton");
-        const startTimeInput = document.getElementById("startTime");
-        const endTimeInput = document.getElementById("endTime");
-        alert("Hello, JavaScript World!");
-        startButton.addEventListener("click", function () {
-            const currentTime = new Date().toISOString();
-            startTimeInput.value = currentTime;
-            startTime.textContent = currentTime;
-        });
-
-        endButton.addEventListener("click", function () {
-            const currentTime = new Date().toISOString();
-            endTimeInput.value = currentTime;
-            endTimeLabel.textContent = "End Time: " +currentTime;
-        });
-        const endButton = document.getElementById("endButton");
-        
-        finishTime.addEventListener("click", function () {
-            window.close();
-        });
-    </script>
+  
 </head>
 <body>
 ${Message}
@@ -55,21 +33,31 @@ ${Message}
           </div>
           <div class="form-group col-md-6">
         
-        <label id="startTimeLabel">Start Time: </label>
-      	<input type="text" id="startTime" name="startTime">
+        <label for="startTime">Start Time: </label>
+      	<input type="text" id="startTime" name="startTime" >
          </div>
-         <div class="form-group col-md-6">
         
-         <label id="endTimeLabel">End Time: </label>
-       	<input type="text" id="endTime" name="endTime">
-          </div>
+        
           <div class="form-group col-md-6">
         <button type="submit" id="finishTime">Finish the Appointment</button>
          </div>
          
     </form>
-      <button id="startButton">Start</button>
-       <button id="endButton">End</button>
+       <script>
+       window.onload = function(){
+    	   var startTimeField = document.getElementById("startTime");
+    	    var currentTime = new Date();
+    	    var hours = currentTime.getHours();
+    	    var minutes = currentTime.getMinutes();
+    	    
+    	    var formattedHours = (hours < 10) ? "0" + hours : hours;
+    	    var formattedMinutes = (minutes < 10) ? "0" + minutes : minutes;
+    	    
+    	    var formattedTime = formattedHours + ":" + formattedMinutes;
+    	    startTimeField.value = formattedTime;
+       }
+	  
+    </script>
 	
     
 </body>

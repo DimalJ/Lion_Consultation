@@ -55,7 +55,7 @@
                         <td>${appointment.time}</td>
                         
                          <td>
-                    	<a href="DoneAppointment.jsp?id=${appointment.id}&seekerUsername=${appointment.seekerUsername}&consultUsername=${appointment.consultUsername}&date=${appointment.date}" target="blank">Start</a>
+                    	<a href="DoneAppointment.jsp?id=${appointment.id}&seekerUsername=${appointment.seekerUsername}&consultUsername=${appointment.consultUsername}&date=${appointment.date}">Start</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
                     	                	
                     </td>

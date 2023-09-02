@@ -7,6 +7,8 @@
      <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link rel="stylesheet" href="./css/styles.css">
+     
+     
 </head>
 <body class="background-image">
     <div class="container mt-5">
@@ -74,5 +76,16 @@
             <button type="submit" class="btn btn-dark btn-lg">Register</button>
         </form>
     </div>
+    
+    <script>
+        // JavaScript code to set the maximum date (18 years ago)
+        var today = new Date();
+        var maxDate = new Date(today);
+        maxDate.setFullYear(maxDate.getFullYear() - 18);
+
+        var birthdayField = document.getElementById("dob");
+        birthdayField.max = maxDate.toISOString().split("T")[0];
+    </script>
+    
 </body>
 </html>

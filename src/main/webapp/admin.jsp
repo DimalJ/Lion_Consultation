@@ -41,60 +41,33 @@
 	${Message}
 </div>
  
- <div class="container">
- <div>
- <a href="adminAddUser.jsp"><button type="submit"  class="btn btn-success btn-lg" id="addUser" name="addUser">Add User</button></a>
+<div class="container">
+ 	<div class="card-deck">
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Add User</h5>
+		    <p class="card-text">Click here for add users</p>
+		    <a href="adminAddUser.jsp" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
+		  </div>
+		  </div>
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">View User List</h5>
+		    <p class="card-text">Click here for Click here to See User List</p>
+		    <a href="viewUserList.jsp" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="userList" name="userList">user List</button></a>
+		  </div>
+   	   </div>
+   	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Meeting List</h5>
+		    <p class="card-text">Click here for see meeting List</p>
+		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
+		  </div>
+	   </div>
+	</div>
  </div>
-        <h2>View Users</h2>
-         <form action="<%= request.getServletContext().getContextPath()%>/AdminViewUserServlet" method="post">
-         
-        
-		  	<div class="input-group mb-3">
-		  		 <select class="form-control" id="type" name="type" required>
-                        <option value="" selected disabled>Select User Type</option>
-                        <option value="jobSeeker">Job Seeker</option>
-                        <option value="consultant">Consultant</option>
-                        <option value="admin">Admin</option>
-                    </select>
-		  	
-		 
-		  <div class="form-group col-md-6">
-		  		<div class="input-group-append">
-		    	 <button type="submit" class="btn btn-dark">Search</button>
-		  		</div>
-		  	</div>
-		  	 </div> 
-		 
-         </form>
-        
-
-       <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                </tr>
-            </thead>
-            <tbody>              
-                <c:forEach items="${users}" var="user">             
-                <tr>
-                        <td>${user.fName}</td>
-                        <td>${user.lName}</td>
-                        <td>${user.username}</td>
-                        <td>${user.email}</td>
-                        <td>${user.contact}</td>
-                         <td>
-                    	<a href="edit.jsp?username=${user.username}">Edit</a>
-                    	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	                	
-                    </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>	
+ 
+ 
+       
 </body>
 </html>

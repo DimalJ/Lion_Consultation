@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +47,10 @@ public class UserRegistrationServlet extends HttpServlet {
 		String gender=request.getParameter("gender");
 		String contact=request.getParameter("contact");
 		
+		LocalDate currentDate = LocalDate.now();
+        String joinedDate = currentDate.toString();
+		
+		
 		User user = new User();
 		user.setfName(firstName);
 		user.setlName(lastName);
@@ -54,6 +60,7 @@ public class UserRegistrationServlet extends HttpServlet {
 		user.setDob(dob);
 		user.setGender(gender);
 		user.setContact(contact);
+		user.setJoinedDate(joinedDate);
 		user.setType("jobSeeker");
 		
 		
@@ -61,16 +68,19 @@ public class UserRegistrationServlet extends HttpServlet {
 			
 			 usernameExits=userDao.usernameCheck(username);
 			 if(usernameExits==true) {
-				 request.setAttribute("errorMessage","Username Already exist");
-				 request.getRequestDispatcher("error.jsp").forward(request, response);	
-			 }
-			 else {
 				 userDao.registration(user);
 				 String userType = user.getType();
 		         HttpSession session = request.getSession();
 		         session.setAttribute("username", username);
 		         session.setAttribute("userType", userType);
-				 response.sendRedirect("jobSeeker.jsp");
+		         request.setAttribute("Message","Successfully registerd");
+				 request.getRequestDispatcher("jobSeeker.jsp").forward(request, response);	
+				 
+			 }
+			 else {
+				 request.setAttribute("errorMessage","Username Already exist");
+				 request.getRequestDispatcher("error.jsp").forward(request, response);	
+				
 			 }
 			 
 	        } catch (Exception e) {

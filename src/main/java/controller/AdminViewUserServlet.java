@@ -35,7 +35,7 @@ public class AdminViewUserServlet extends HttpServlet {
 		String type = request.getParameter("type");
 		ArrayList<User> users = adminViewUserDao.getUsersByType(type);
         request.setAttribute("users", users);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
+        request.getRequestDispatcher("viewUserList.jsp").forward(request, response);
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

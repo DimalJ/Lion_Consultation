@@ -55,7 +55,7 @@ public class CheckConsultServlet extends HttpServlet {
 		 		 boolean booked = addAppointmentDao.addAppointment(seeker_username, consult_username, appointmentDate, appointmentTime);
 		         if (booked) {
 		         	request.setAttribute("Message","Appointment added");
-		 			request.getRequestDispatcher("addAppointment.jsp").forward(request, response);
+		 			request.getRequestDispatcher("jobSeeker.jsp").forward(request, response);
 		         } else {
 		         	request.setAttribute("Message","Appointment not added");
 		 			request.getRequestDispatcher("addAppointment.jsp").forward(request, response);

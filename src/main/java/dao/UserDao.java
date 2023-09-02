@@ -10,9 +10,9 @@ import model.User;
 public class UserDao {
 	String usernameCheck="SELECT * FROM users WHERE username=?";
 	String insertSql = "INSERT INTO users "
-			+ "( fname, lname, username, password, email, dob, gender, contact, type)"
+			+ "( fname, lname, username, password, email, dob, gender, contact, type,joinedDate)"
 			+ "VALUES"
-			+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
+			+ "(?, ?, ?, ?, ?, ?, ?, ?, ?,?)" ;
 	
 	//Check Username exits
 	public boolean usernameCheck(String username) {
@@ -28,6 +28,7 @@ public class UserDao {
 			}
 			else {
 				usernameExits=true;
+				return usernameExits;
 			}
 			
 			
@@ -58,7 +59,7 @@ public class UserDao {
 			ps.setString(7,user.getGender());
 			ps.setString(8,user.getContact());
 			ps.setString(9,user.getType());
-			
+			ps.setString(10,user.getJoinedDate());
 			result = ps.executeUpdate();
 			ps.close();
 			conn.close();

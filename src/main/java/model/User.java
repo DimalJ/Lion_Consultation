@@ -13,6 +13,7 @@ public class User {
 	private String gender;
 	private String contact;
 	private String type;
+	private String joinedDate;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -30,6 +31,13 @@ public class User {
 		this.fName=fName;
 		this.username=username;
 		this.gender=gender;
+	}
+	
+	public String getJoinedDate() {
+		return joinedDate;
+	}
+	public void setJoinedDate(String joinedDate) {
+		this.joinedDate = joinedDate;
 	}
 	public String getUsername() {
 		return username;

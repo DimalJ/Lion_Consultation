@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +45,8 @@ public class AdminAddUserServlet extends HttpServlet {
 		String gender=request.getParameter("gender");
 		String contact=request.getParameter("contact");
 		String type=request.getParameter("type");
+		LocalDate currentDate = LocalDate.now();
+        String joinedDate = currentDate.toString();
 		
 		User user = new User();
 		user.setfName(firstName);
@@ -54,6 +58,7 @@ public class AdminAddUserServlet extends HttpServlet {
 		user.setGender(gender);
 		user.setContact(contact);
 		user.setType(type);
+		user.setJoinedDate(joinedDate);
 		
 		
 		try {
@@ -61,7 +66,8 @@ public class AdminAddUserServlet extends HttpServlet {
 			 usernameExits=userDao.usernameCheck(user.getUsername());
 			 if(usernameExits=true) {
 				userDao.registration(user);
-				response.sendRedirect("admin.jsp");
+				request.setAttribute("Message","User Added");
+				 request.getRequestDispatcher("admin.jsp").forward(request, response);
 			 }
 			 else {
 				 request.setAttribute("errorMessage","Username Already exist");

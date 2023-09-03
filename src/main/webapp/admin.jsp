@@ -66,7 +66,31 @@
 	   </div>
 	</div>
  </div>
- 
+ <div class="container">
+ 	<div class="card-deck">
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Consultant list</h5>
+		    <p class="card-text">Click here for add users</p>
+		    <a href="<%= request.getServletContext().getContextPath()%>/ConsultantListServlet" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="typeC" name="typeC">Click Here</button></a>
+		  </div>
+		</div>
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">View User List</h5>
+		    <p class="card-text">Click here for Click here to See User List</p>
+		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="userList" name="userList">Click Here</button></a>
+		  </div>
+   	   </div>
+   	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Appointment List</h5>
+		    <p class="card-text">Click here for see appointment List</p>
+		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="appointmentList" name="appointmentList">Click Here</button></a>
+		  </div>
+	   </div>
+	</div>
+ </div>
  
        
 </body>

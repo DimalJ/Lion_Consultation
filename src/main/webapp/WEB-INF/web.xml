@@ -94,4 +94,10 @@
 <servlet-name>ViewadminAppointmentList</servlet-name>
 <servlet-class>controller.ViewadminAppointmentList</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>ConsultantListServlet</display-name>
+<servlet-name>ConsultantListServlet</servlet-name>
+<servlet-class>controller.ConsultantListServlet</servlet-class>
+</servlet>
 </web-app>

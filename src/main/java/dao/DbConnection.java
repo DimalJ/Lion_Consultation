@@ -8,7 +8,7 @@ public class DbConnection {
 	public static final String className="com.mysql.cj.jdbc.Driver";
 	public static final String dbUsername="root";
 	public static final String dbPassword="1234";
-	public static final String connection="jdbc:mysql://localhost:3306/consultants";
+	public static final String connection="jdbc:mysql://localhost:3306/consultants?autoReconnect=true&useSSL=false";
 	
 
 	

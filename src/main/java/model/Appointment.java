@@ -13,6 +13,20 @@ private String startTime;
 private String endTime;
 
 
+public Appointment(int id2, String seekerUsername2, String consultUsername2, String seekerName, String consultName,
+		String date2, String time2) {
+	this.id = id2;
+	this.seekerUsername=seekerUsername2;
+	this.consultUsername=consultUsername2;
+	this.consultFname=consultName;
+	this.seekerFname=seekerName;
+	this.Date=date2;
+	this.time=time2;
+			
+}
+public Appointment() {
+	// TODO Auto-generated constructor stub
+}
 public String getStartTime() {
 	return startTime;
 }

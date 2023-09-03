@@ -8,20 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.AppointmentListDao;
 import model.Appointment;
 
 /**
  * Servlet implementation class ViewAppointmentList
  */
-@WebServlet("/ViewAppointmentListServlet")
-public class ViewAppointmentListServlet extends HttpServlet {
+@WebServlet("/ViewadminAppointmentList")
+public class ViewadminAppointmentList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AppointmentListDao appointmentListDao;
+	AppointmentListDao appointmentListDao;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAppointmentListServlet() {
+    public ViewadminAppointmentList() {
         this.appointmentListDao = new AppointmentListDao();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +33,11 @@ public class ViewAppointmentListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        String seeker_username = request.getParameter("username");
-       
-		ArrayList<Appointment> appointmentList = appointmentListDao.getAppointmentList(seeker_username);
-		System.out.println(appointmentList);
-        request.setAttribute("appointmentList", appointmentList);
-        
-       
-        request.getRequestDispatcher("seekerAppointmentList.jsp").forward(request, response);
+		ArrayList<Appointment> appointmentList = appointmentListDao.getAllAppointmentList();
+		request.setAttribute("appointmentList", appointmentList);
+        System.out.println(appointmentList);
+	       
+        request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
 	}
 
 	/**

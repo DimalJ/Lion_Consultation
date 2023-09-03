@@ -88,4 +88,10 @@
 <servlet-name>DoneAppointmentServlet</servlet-name>
 <servlet-class>controller.DoneAppointmentServlet</servlet-class>
 </servlet>
+<servlet>
+<description></description>
+<display-name>ViewadminAppointmentList</display-name>
+<servlet-name>ViewadminAppointmentList</servlet-name>
+<servlet-class>controller.ViewadminAppointmentList</servlet-class>
+</servlet>
 </web-app>

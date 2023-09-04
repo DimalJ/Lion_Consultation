@@ -5,10 +5,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Meeting List</title>
+<title>Appointment List</title>
  <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
    <link rel="stylesheet" href="./css/styles.css">
+   <script>
+	   function confirmDelete(deleteURL) {
+		    var confirmMsg = "Are you sure you want to delete this item?";
+		    if (confirm(confirmMsg)) {
+		        // If the user confirms, redirect to the delete servlet
+		        window.location.href = deleteURL;
+		    }
+		}
+   </script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -60,7 +69,7 @@
                         <td>${appointment.time}</td>
                         
                          <td>
-                    	<a href="edit.jsp?id=${appointment.id}">edit</a>
+                    	<a href="javascript:void(0);" onclick="confirmDelete(<%= request.getServletContext().getContextPath()%>/AbsentAppointmentServlet?id=${appointment.id})">Delete</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
                     	                	
                     </td>

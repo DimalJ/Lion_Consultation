@@ -33,11 +33,11 @@ public class AbsentAppointmentServlet extends HttpServlet {
 		boolean affected=appointmentEditDao.removeAppointment(apponitmentId);
 		if(affected) {
 			 request.setAttribute("Message","Appointment Removed");
-			 request.getRequestDispatcher("consulAppointmentList.jsp").forward(request, response);
+			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
 		}
 		else {
 			 request.setAttribute("Message","Appointment not Removed");
-			 request.getRequestDispatcher("consulAppointmentList.jsp").forward(request, response);
+			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
 		}
 	}
 

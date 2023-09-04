@@ -34,9 +34,7 @@ public class ViewadminAppointmentList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Appointment> appointmentList = appointmentListDao.getAllAppointmentList();
-		request.setAttribute("appointmentList", appointmentList);
-        System.out.println(appointmentList);
-	       
+		request.setAttribute("appointmentList", appointmentList); 
         request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
 	}
 

@@ -33,6 +33,10 @@ public class User {
 		this.gender=gender;
 	}
 	
+	public User(String name, String username) {
+		this.username=username;
+		this.fName=name;
+	}
 	public String getJoinedDate() {
 		return joinedDate;
 	}

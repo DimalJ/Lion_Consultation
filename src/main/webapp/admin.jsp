@@ -70,9 +70,9 @@
  	<div class="card-deck">
 	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title">Consultant list</h5>
-		    <p class="card-text">Click here for add users</p>
-		    <a href="<%= request.getServletContext().getContextPath()%>/ConsultantListServlet" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="typeC" name="typeC">Click Here</button></a>
+		    <h5 class="card-title">Add Specialty</h5>
+		    <p class="card-text">Click here for add Specialty</p>
+		    <a href="<%= request.getServletContext().getContextPath()%>/ConsultListServlet" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="typeC" name="typeC">Click Here</button></a>
 		  </div>
 		</div>
 	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">

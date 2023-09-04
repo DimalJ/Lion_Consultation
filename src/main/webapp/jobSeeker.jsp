@@ -35,7 +35,7 @@
     </nav>
 <h1>Welcome to Lion Consultation</h1><br>
  ${Message}
-<a href="addAppointment.jsp">Click Here</a>
+<a href="searchConsultant.jsp">Click Here</a>
 <a href="<%= request.getServletContext().getContextPath()%>/ViewAppointmentListServlet?username=${sessionScope.username}">Click 22Here</a>
 </body>
 </html>

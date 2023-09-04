@@ -5,21 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Appointment List</title>
+<title>User List</title>
  <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
    <link rel="stylesheet" href="./css/styles.css">
-   <script type="text/javascript">
-   console.log('confirmDelete function called with itemId:', "13");
-   function confirmDelete(deleteURL) {	 
-	    var confirmMsg = "Are you sure you want to delete this item?";
-	    if (confirm(confirmMsg)) {
-	        // If the user confirms, redirect to the delete servlet
-	        window.location.href = deleteURL;
-	    }
-	}
-
-   </script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -51,26 +40,30 @@
 	${Message}
 </div>
  
-<div class="container" >
- <table class="table table-bordered">
+ <div class="container">
+
+        <h2>View Users</h2>
+        
+       <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Job seeker</th>
-                    <th>Consultant</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                   
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Contact</th>
                 </tr>
             </thead>
             <tbody>              
-                <c:forEach items="${appointmentList}" var="appointment">             
+                <c:forEach items="${users}" var="user">             
                 <tr>
-                        <td>${appointment.seekerFname}</td>
-                        <td>${appointment.consultFname}</td>
-                        <td>${appointment.date}</td>
-                        <td>${appointment.time}</td>
-                     	<td>
-                     	<a href="javascript:void(0);" onclick="confirmDelete(<%= request.getServletContext().getContextPath()%>/AbsentAppointmentServlet?id=${appointment.id})">Delete</a>
+                        <td>${user.fName}</td>
+                        <td>${user.lName}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.contact}</td>
+                         <td>
+                    	<a href="addSpecialty.jsp?username=${user.username}">Add</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
                     	                	
                     </td>
@@ -81,4 +74,3 @@
     </div>	
 </body>
 </html>
-

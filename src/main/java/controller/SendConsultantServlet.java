@@ -7,20 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AppointmentsEditDao;
-
 /**
- * Servlet implementation class AbsentAppointmentServlet
+ * Servlet implementation class SendConsultantServlet
  */
-@WebServlet("/AbsentAppointmentServlet")
-public class AbsentAppointmentServlet extends HttpServlet {
+@WebServlet("/SendConsultantServlet")
+public class SendConsultantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AppointmentsEditDao appointmentEditDao;   
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AbsentAppointmentServlet() {
-        this.appointmentEditDao = new AppointmentsEditDao();
+    public SendConsultantServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -28,17 +26,8 @@ public class AbsentAppointmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int apponitmentId = Integer.parseInt(request.getParameter("id"));
-		
-		boolean affected=appointmentEditDao.removeAppointment(apponitmentId);
-		if(affected) {
-			 request.setAttribute("Message","Appointment Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
-		else {
-			 request.setAttribute("Message","Appointment not Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

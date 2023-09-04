@@ -27,6 +27,11 @@ public Appointment(int id2, String seekerUsername2, String consultUsername2, Str
 public Appointment() {
 	// TODO Auto-generated constructor stub
 }
+public Appointment(String date2, String startTime2, String endTime2) {
+	this.Date=date2;
+	this.startTime=startTime2;
+	this.endTime=endTime2;
+}
 public String getStartTime() {
 	return startTime;
 }

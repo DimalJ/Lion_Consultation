@@ -5,25 +5,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Appointment List</title>
- <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+<title>Add Appointment</title>
+<link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
    <link rel="stylesheet" href="./css/styles.css">
-   <script type="text/javascript">
-   console.log('confirmDelete function called with itemId:', "13");
-   function confirmDelete(deleteURL) {	 
-	    var confirmMsg = "Are you sure you want to delete this item?";
-	    if (confirm(confirmMsg)) {
-	        // If the user confirms, redirect to the delete servlet
-	        window.location.href = deleteURL;
-	    }
-	}
-
-   </script>
 </head>
 <body>
-<!-- Navigation Bar -->
-   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Lion Consultants</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -45,40 +33,49 @@
            <a class="nav-link" href="LogoutServlet">Logout</a>
         </div>
     </nav>
- 
- <div  class="message">
- <h3>Welcome to Lion Consultation,<br></h3>
-	${Message}
-</div>
- 
+    
+    ${Message }
 <div class="container" >
+${param.consult_username}
  <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Job seeker</th>
-                    <th>Consultant</th>
                     <th>Date</th>
-                    <th>Time</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                    
                 </tr>
             </thead>
             <tbody>              
-                <c:forEach items="${appointmentList}" var="appointment">             
+                <c:forEach items="${availableTime}" var="time">             
                 <tr>
-                        <td>${appointment.seekerFname}</td>
-                        <td>${appointment.consultFname}</td>
-                        <td>${appointment.date}</td>
-                        <td>${appointment.time}</td>
-                     	<td>
-                     	<a href="javascript:void(0);" onclick="confirmDelete(<%= request.getServletContext().getContextPath()%>/AbsentAppointmentServlet?id=${appointment.id})">Delete</a>
-                    	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	                	
-                    </td>
+                        <td>${time.date}</td>
+                        <td>${time.startTime}</td>
+                        <td>${time.endTime}</td>
+                       
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
     </div>	
+<div class="container">
+        <h2>Book an Appointment</h2>
+        <form action="<%= request.getServletContext().getContextPath()%>/CheckConsultServlet" method="post">
+        <div class="form-group">
+                <label for="consultant">Consult username:</label>
+                <input type="text" class="form-control" name="consultant" id="consultant" value="${username}"  required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Enter Date:</label>
+                <input type="date" class="form-control" name="appointmentDate" id="appointmentDate"  required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Enter Time:</label>
+                <input type="time" class="form-control" name="appointmentTime" id="appointmentTime" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" name="action" value="addAppointment">Book Appointment</button>
+        </form>
+    </div>
 </body>
 </html>
-

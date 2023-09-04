@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AppointmentsEditDao;
+import dao.SpecialityAddDao;
 
 /**
- * Servlet implementation class AbsentAppointmentServlet
+ * Servlet implementation class AddSpecialtyServlet
  */
-@WebServlet("/AbsentAppointmentServlet")
-public class AbsentAppointmentServlet extends HttpServlet {
+@WebServlet("/AddSpecialtyServlet")
+public class AddSpecialtyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AppointmentsEditDao appointmentEditDao;   
+    private SpecialityAddDao specialityAddDao;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AbsentAppointmentServlet() {
-        this.appointmentEditDao = new AppointmentsEditDao();
+    public AddSpecialtyServlet() {
+        super();
+        this.specialityAddDao = new SpecialityAddDao();
         // TODO Auto-generated constructor stub
     }
 
@@ -28,17 +29,18 @@ public class AbsentAppointmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int apponitmentId = Integer.parseInt(request.getParameter("id"));
+		String username = request.getParameter("username");
+		String industry = request.getParameter("industry");
+		String region = request.getParameter("region");
 		
-		boolean affected=appointmentEditDao.removeAppointment(apponitmentId);
-		if(affected) {
-			 request.setAttribute("Message","Appointment Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
-		else {
-			 request.setAttribute("Message","Appointment not Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
+		boolean affected = specialityAddDao.addSpecialty(username, industry, region);
+		if (affected) {
+        	request.setAttribute("Message","Specialty added");
+			request.getRequestDispatcher("admin.jsp").forward(request, response);
+        } else {
+        	request.setAttribute("errorMessage","specialty not added");
+			request.getRequestDispatcher("admin.jsp").forward(request, response);
+        }
 	}
 
 	/**

@@ -1,26 +1,30 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AppointmentsEditDao;
+import dao.AdminViewUserDao;
+import model.User;
 
 /**
- * Servlet implementation class AbsentAppointmentServlet
+ * Servlet implementation class ConsultListServlet
  */
-@WebServlet("/AbsentAppointmentServlet")
-public class AbsentAppointmentServlet extends HttpServlet {
+@WebServlet("/ConsultListServlet")
+public class ConsultListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AppointmentsEditDao appointmentEditDao;   
+    private AdminViewUserDao adminViewUserDao;  
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AbsentAppointmentServlet() {
-        this.appointmentEditDao = new AppointmentsEditDao();
+    public ConsultListServlet() {
+        super();
+        this.adminViewUserDao = new AdminViewUserDao();
         // TODO Auto-generated constructor stub
     }
 
@@ -28,17 +32,11 @@ public class AbsentAppointmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int apponitmentId = Integer.parseInt(request.getParameter("id"));
+		String type = "consultant";
+		ArrayList<User> users = adminViewUserDao.getUsersByType(type);
+        request.setAttribute("users", users);
+        request.getRequestDispatcher("consultList.jsp").forward(request, response);
 		
-		boolean affected=appointmentEditDao.removeAppointment(apponitmentId);
-		if(affected) {
-			 request.setAttribute("Message","Appointment Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
-		else {
-			 request.setAttribute("Message","Appointment not Removed");
-			 request.getRequestDispatcher("adminAppointmentList.jsp").forward(request, response);
-		}
 	}
 
 	/**

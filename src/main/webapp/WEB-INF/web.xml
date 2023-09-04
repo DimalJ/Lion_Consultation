@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>Lion_Consultation</display-name>
+  <display-name>TopJobs</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.html</welcome-file>
@@ -9,89 +9,94 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
-<servlet>
-<description></description>
-<display-name>UserRegistrationServlet</display-name>
-<servlet-name>UserRegistrationServlet</servlet-name>
-<servlet-class>controller.UserRegistrationServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>LoginServelet</display-name>
-<servlet-name>LoginServelet</servlet-name>
-<servlet-class>controller.LoginServelet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>AdminAddUserServlet</display-name>
-<servlet-name>AdminAddUserServlet</servlet-name>
-<servlet-class>controller.AdminAddUserServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>AdminViewUserServlet</display-name>
-<servlet-name>AdminViewUserServlet</servlet-name>
-<servlet-class>controller.AdminViewUserServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>LogoutServlet</display-name>
-<servlet-name>LogoutServlet</servlet-name>
-<servlet-class>controller.LogoutServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>ConsultantAvailabilityServlet</display-name>
-<servlet-name>ConsultantAvailabilityServlet</servlet-name>
-<servlet-class>controller.ConsultantAvailabilityServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>EditUserServlet</display-name>
-<servlet-name>EditUserServlet</servlet-name>
-<servlet-class>controller.EditUserServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>UpdateUserServlet</display-name>
-<servlet-name>UpdateUserServlet</servlet-name>
-<servlet-class>controller.UpdateUserServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>DeleteUserServlet</display-name>
-<servlet-name>DeleteUserServlet</servlet-name>
-<servlet-class>controller.DeleteUserServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>CheckConsultServlet</display-name>
-<servlet-name>CheckConsultServlet</servlet-name>
-<servlet-class>controller.CheckConsultServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>AddAppointmentServlet</display-name>
-<servlet-name>AddAppointmentServlet</servlet-name>
-<servlet-class>controller.AddAppointmentServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>ViewConsultAppointmentListServlet</display-name>
-<servlet-name>ViewConsultAppointmentListServlet</servlet-name>
-<servlet-class>controller.ViewConsultAppointmentListServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>DoneAppointmentServlet</display-name>
-<servlet-name>DoneAppointmentServlet</servlet-name>
-<servlet-class>controller.DoneAppointmentServlet</servlet-class>
-</servlet>
-<servlet>
-<description></description>
-<display-name>ViewadminAppointmentList</display-name>
-<servlet-name>ViewadminAppointmentList</servlet-name>
-<servlet-class>controller.ViewadminAppointmentList</servlet-class>
-</servlet>
+  <servlet>
+    <description></description>
+    <display-name>UserRegistrationServlet</display-name>
+    <servlet-name>UserRegistrationServlet</servlet-name>
+    <servlet-class>controller.UserRegistrationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>LoginServelet</display-name>
+    <servlet-name>LoginServelet</servlet-name>
+    <servlet-class>controller.LoginServelet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>AdminAddUserServlet</display-name>
+    <servlet-name>AdminAddUserServlet</servlet-name>
+    <servlet-class>controller.AdminAddUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>AdminViewUserServlet</display-name>
+    <servlet-name>AdminViewUserServlet</servlet-name>
+    <servlet-class>controller.AdminViewUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ConsultantAvailabilityServlet</display-name>
+    <servlet-name>ConsultantAvailabilityServlet</servlet-name>
+    <servlet-class>controller.ConsultantAvailabilityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>EditUserServlet</display-name>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>controller.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>UpdateUserServlet</display-name>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <servlet-class>controller.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserServlet</display-name>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>controller.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>CheckConsultServlet</display-name>
+    <servlet-name>CheckConsultServlet</servlet-name>
+    <servlet-class>controller.CheckConsultServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>AddAppointmentServlet</display-name>
+    <servlet-name>AddAppointmentServlet</servlet-name>
+    <servlet-class>controller.AddAppointmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ViewConsultAppointmentListServlet</display-name>
+    <servlet-name>ViewConsultAppointmentListServlet</servlet-name>
+    <servlet-class>controller.ViewConsultAppointmentListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>DoneAppointmentServlet</display-name>
+    <servlet-name>DoneAppointmentServlet</servlet-name>
+    <servlet-class>controller.DoneAppointmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ViewadminAppointmentList</display-name>
+    <servlet-name>ViewadminAppointmentList</servlet-name>
+    <servlet-class>controller.ViewadminAppointmentList</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ConsultantListServlet</display-name>
+    <servlet-name>ConsultantListServlet</servlet-name>
+    <servlet-class>controller.ConsultantListServlet</servlet-class>
+  </servlet>
 </web-app>

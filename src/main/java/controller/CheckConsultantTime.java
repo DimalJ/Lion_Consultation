@@ -9,37 +9,37 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.AddAppointmentSpecialtyDao;
-//import model.Appointment;
-import model.User;
+import model.Appointment;
 
 /**
- * Servlet implementation class CheckConsultantSpecialtyServlet
+ * Servlet implementation class CheckConsultantTime
  */
-@WebServlet("/CheckConsultantSpecialtyServlet")
-public class CheckConsultantSpecialtyServlet extends HttpServlet {
+@WebServlet("/CheckConsultantTime")
+public class CheckConsultantTime extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private AddAppointmentSpecialtyDao addAppointmentSpecialtyDao;  
+	private AddAppointmentSpecialtyDao addAppointmentSpecialtyDao;     
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckConsultantSpecialtyServlet() {
+    public CheckConsultantTime() {
         super();
-       this.addAppointmentSpecialtyDao = new AddAppointmentSpecialtyDao();
+       addAppointmentSpecialtyDao = new AddAppointmentSpecialtyDao();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	 	String industry = request.getParameter("industry");
-        String region = request.getParameter("region");
-        List<User> availableConsultants = addAppointmentSpecialtyDao.getAvailableConsultants(industry, region);
-        request.setAttribute("availableConsultants", availableConsultants);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("searchConsultant.jsp");
+		String consult_username= request.getParameter("consultant");
+ 		List<Appointment> availableTime = addAppointmentSpecialtyDao.getAvailablTime(consult_username);
+ 		System.out.println(availableTime);
+ 		request.setAttribute("availableTime", availableTime);
+ 		request.setAttribute("username", consult_username);
+ 		System.out.println(consult_username);
+ 		RequestDispatcher dispatcher = request.getRequestDispatcher("addAppointmentSpecialty.jsp");
         dispatcher.forward(request, response);
-      
 	}
 
 	/**

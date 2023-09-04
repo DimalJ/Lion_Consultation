@@ -69,7 +69,7 @@ ${Message}
                   </div>
                     <div class="form-group col-md-6">
                     <label for="region">Country</label>
-                    <select class="form-control" id="region" name="region" " required>
+                    <select class="form-control" id="region" name="region"  required>
                         <option value="" selected disabled>Select Region</option>
                         <option value="america">America</option>
                         <option value="europe">Europe</option>
@@ -78,8 +78,10 @@ ${Message}
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-            <button type="submit" class="btn btn-primary" name="action" value="checkAvailability">Check Availability</button>
+            <button type="submit" class="btn btn-primary" name="action" value="checkTime">Check Availability</button>
             </div>
+            </form>
+             <form action="<%= request.getServletContext().getContextPath()%>/CheckConsultantTime" method="post">
             <div class="form-group col-md-6">
             <h2>Available Consultants</h2>
             <div class="form-group">
@@ -90,7 +92,7 @@ ${Message}
                     </c:forEach>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" name="action" value="addAppointment">Book Appointment</button>
+            <button type="submit" class="btn btn-primary" name="action" value="addAppointment">Get Time Slots</button>
             </div>
         </form>
         

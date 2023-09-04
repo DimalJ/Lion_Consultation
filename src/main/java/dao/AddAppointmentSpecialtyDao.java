@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Appointment;
 import model.User;
 
 public class AddAppointmentSpecialtyDao {
@@ -48,5 +49,29 @@ public class AddAppointmentSpecialtyDao {
 	        }
 
 	        return availableConsultants;
+	    }
+	 public List<Appointment> getAvailablTime(String username) {
+	        List<Appointment> availableTime = new ArrayList<>();
+	        String searchTime = "SELECT * FROM consultant_availability WHERE username=? AND available_date >= CURDATE() ORDER BY available_date ASC, start_time ASC ";
+	        Connection conn = DbConnection.getConnection();
+	        try (
+	             PreparedStatement preparedStatement = conn.prepareStatement(searchTime)) {
+		            preparedStatement.setString(1, username);
+		           ResultSet rs = preparedStatement.executeQuery();
+	                while (rs.next()) {
+	                    	String date=rs.getString("available_date");
+	                    	String startTime = rs.getString("start_time");
+	                    	String endTime = rs.getString("finish_Time");
+	                    	availableTime.add(new Appointment(date,startTime,endTime));
+	                    }
+	                 
+	                rs.close();
+	                conn.close();
+	            
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return availableTime;
 	    }
 }

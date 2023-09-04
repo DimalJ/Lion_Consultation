@@ -9,6 +9,25 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+    <servlet>
+    <description></description>
+    <display-name>CheckConsultantSpecialtyServlet</display-name>
+    <servlet-name>CheckConsultantSpecialtyServlet</servlet-name>
+    <servlet-class>controller.CheckConsultantSpecialtyServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description></description>
+    <display-name>AddSpecialtyServlet</display-name>
+    <servlet-name>AddSpecialtyServlet</servlet-name>
+    <servlet-class>controller.AddSpecialtyServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description></description>
+    <display-name>ConsultListServlet</display-name>
+    <servlet-name>ConsultListServlet</servlet-name>
+    <servlet-class>controller.ConsultListServlet</servlet-class>
+  </servlet>
   <servlet>
     <description></description>
     <display-name>UserRegistrationServlet</display-name>

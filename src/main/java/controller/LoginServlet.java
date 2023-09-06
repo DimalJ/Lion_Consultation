@@ -48,13 +48,16 @@ public class LoginServlet extends HttpServlet {
                 } else if ("admin".equals(userType)) {
                     response.sendRedirect("admin.jsp");
                 } else {
-                    response.sendRedirect("error.jsp");
+                	request.setAttribute("Message","Wrong username or password");
+		 			request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
             } else {
-                response.sendRedirect("error.jsp");
+            	request.setAttribute("Message","Wrong username or password");
+	 			request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
-            response.sendRedirect("error.jsp");
+        	request.setAttribute("Message","Wrong username or password");
+ 			request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 	

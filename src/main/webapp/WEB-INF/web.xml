@@ -9,7 +9,20 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
+
+
+    <servlet>
+    <description></description>
+    <display-name>ReportServlet</display-name>
+    <servlet-name>ReportServlet</servlet-name>
+    <servlet-class>controller.ReportServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <description></description>
+    <display-name>FinishedAppointmentServlet</display-name>
+    <servlet-name>FinishedAppointmentServlet</servlet-name>
+    <servlet-class>controller.FinishedAppointmentServlet</servlet-class>
+  </servlet>
     <servlet>
     <description></description>
     <display-name>CheckConsultantTime</display-name>

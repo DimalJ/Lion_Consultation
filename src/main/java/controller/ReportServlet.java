@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,33 +9,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AddAppointmentSpecialtyDao;
-import model.Appointment;
+import dao.ReportDao;
 
 /**
- * Servlet implementation class CheckConsultantTime
+ * Servlet implementation class ReportServlet
  */
-@WebServlet("/CheckConsultantTime")
-public class CheckConsultantTime extends HttpServlet {
+@WebServlet("/ReportServlet")
+public class ReportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AddAppointmentSpecialtyDao addAppointmentSpecialtyDao;     
+    private ReportDao reportDao;  
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckConsultantTime() {
+    public ReportServlet() {
         super();
-       addAppointmentSpecialtyDao = new AddAppointmentSpecialtyDao();
+        this.reportDao = new ReportDao();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String consult_username= request.getParameter("consultant");
- 		List<Appointment> availableTime = addAppointmentSpecialtyDao.getAvailablTime(consult_username);
- 		request.setAttribute("availableTime", availableTime);
- 		request.setAttribute("username", consult_username);
- 		RequestDispatcher dispatcher = request.getRequestDispatcher("addAppointmentSpecialty.jsp");
+		int newUser= reportDao.getNewUser();
+		int totalUser = reportDao.getTotalUser();
+		int totalConsult = reportDao.getTotalConsultUser();
+		int monthlyAppo = reportDao.getMonthlyappointment();
+		int totalAppo = reportDao.getTotalappointment();
+		int pendingAppo = reportDao.getPendingappointment();
+		
+		request.setAttribute("newUser", newUser);
+ 		request.setAttribute("totalUser", totalUser);
+ 		request.setAttribute("totalConsult", totalConsult);
+ 		request.setAttribute("totalAppo", totalAppo);
+ 		request.setAttribute("pendingAppo", pendingAppo);
+ 		request.setAttribute("monthlyAppo", monthlyAppo);
+ 		
+ 		RequestDispatcher dispatcher = request.getRequestDispatcher("report.jsp");
         dispatcher.forward(request, response);
 	}
 

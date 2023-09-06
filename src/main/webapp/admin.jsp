@@ -14,20 +14,8 @@
 <body>
 <!-- Navigation Bar -->
    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Lion Consultants</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
+        <a class="navbar-brand" href="admin.jsp">Top Jobs</a>
+       
         <div class="navbar-text ml-auto">
             Welcome, ${sessionScope.username} (${sessionScope.userType})
         </div>
@@ -37,7 +25,7 @@
     </nav>
  
  <div  class="message">
- <h3>Welcome to Lion Consultation,<br></h3>
+ <h3>Welcome to Top jobs,<br></h3>
 	${Message}
 </div>
  
@@ -53,14 +41,14 @@
 	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
 		  <div class="card-body">
 		    <h5 class="card-title">View User List</h5>
-		    <p class="card-text">Click here for Click here to See User List</p>
+		    <p class="card-text">Click here to See User List</p>
 		    <a href="viewUserList.jsp" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="userList" name="userList">user List</button></a>
 		  </div>
    	   </div>
    	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title">Meeting List</h5>
-		    <p class="card-text">Click here for see meeting List</p>
+		    <h5 class="card-title">Appointment List</h5>
+		    <p class="card-text">Click here for see Appointment List</p>
 		    <a href="<%= request.getServletContext().getContextPath()%>/ViewadminAppointmentList" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
 		  </div>
 	   </div>
@@ -77,16 +65,16 @@
 		</div>
 	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title">View User List</h5>
-		    <p class="card-text">Click here for Click here to See User List</p>
-		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="userList" name="userList">Click Here</button></a>
+		    <h5 class="card-title">Finished Appointments</h5>
+		    <p class="card-text">Monthly Finished Appointments</p>
+		    <a href="<%= request.getServletContext().getContextPath()%>/FinishedAppointmentServlet" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="Fappo" name="Fappo">Click Here</button></a>
 		  </div>
    	   </div>
    	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title">Appointment List</h5>
-		    <p class="card-text">Click here for see appointment List</p>
-		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="appointmentList" name="appointmentList">Click Here</button></a>
+		    <h5 class="card-title">Report</h5>
+		    <p class="card-text">Click here for see the report Dashbaord</p>
+		    <a href="<%= request.getServletContext().getContextPath()%>/ReportServlet" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="appointmentList" name="appointmentList">Click Here</button></a>
 		  </div>
 	   </div>
 	</div>

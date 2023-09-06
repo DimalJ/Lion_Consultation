@@ -7,8 +7,10 @@
      <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link rel="stylesheet" href="./css/styles.css">
+   
 </head>
 <body class="background-image">
+
     <div class="container mt-5">
         <h1>Registration Form</h1>
         <form action="<%= request.getServletContext().getContextPath()%>/UserRegistrationServlet" method="post">
@@ -46,7 +48,8 @@
             <div class="form-row">
 	            <div class="form-group col-md-6">
 	                    <label for="dob">Date of Birth</label>
-	                    <input type="date" class="form-control" id="dob" name="dob" required>  
+	                    <input type="date" onsubmit="return validateDOB();" class="form-control" id="dob" name="dob" required>  
+	                      <span id="dobError" style="color: red;"></span>
 	            </div> 
                 <div class="form-group col-md-6">
                     <label for="gender">Gender</label>
@@ -62,6 +65,8 @@
            
             <button type="submit" class="btn btn-dark btn-lg">Register</button>
         </form>
+        
     </div>
+    
 </body>
 </html>

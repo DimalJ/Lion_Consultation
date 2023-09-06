@@ -49,9 +49,7 @@ public class DoneAppointmentServlet extends HttpServlet {
         
         
         boolean done= appointmentEditDao.addAppointment(seeker_username, consult_username, date, startTime, endTime);
-        System.out.println(date);
-        System.out.println(startTime);
-        System.out.println(endTime);
+       
         
         if ( done==true) {
         	 request.setAttribute("Message","Appointment finished");

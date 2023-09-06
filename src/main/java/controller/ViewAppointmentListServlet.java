@@ -23,6 +23,7 @@ public class ViewAppointmentListServlet extends HttpServlet {
      */
     public ViewAppointmentListServlet() {
         this.appointmentListDao = new AppointmentListDao();
+     
         // TODO Auto-generated constructor stub
     }
 
@@ -34,10 +35,8 @@ public class ViewAppointmentListServlet extends HttpServlet {
         String seeker_username = request.getParameter("username");
        
 		ArrayList<Appointment> appointmentList = appointmentListDao.getAppointmentList(seeker_username);
-		System.out.println(appointmentList);
         request.setAttribute("appointmentList", appointmentList);
         
-       
         request.getRequestDispatcher("seekerAppointmentList.jsp").forward(request, response);
 	}
 
@@ -45,7 +44,7 @@ public class ViewAppointmentListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

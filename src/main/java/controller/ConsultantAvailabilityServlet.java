@@ -50,7 +50,7 @@ public class ConsultantAvailabilityServlet extends HttpServlet {
         if (added) {
            
             request.setAttribute("Message","New time slot added");
-			request.getRequestDispatcher("consultants.jsp").forward(request, response);
+			request.getRequestDispatcher("consultAvailability.jsp").forward(request, response);
            
         } else {
            

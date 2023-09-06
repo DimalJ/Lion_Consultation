@@ -12,20 +12,8 @@
 <body>
 
  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Lion Consultants</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
+        <a class="navbar-brand" href="jobSeeker.jsp">Top Jobs</a>
+       
         <div class="navbar-text ml-auto">
             Welcome, ${sessionScope.username} (${sessionScope.userType})
         </div>
@@ -33,9 +21,34 @@
            <a class="nav-link" href="LogoutServlet">Logout</a>
         </div>
     </nav>
-<h1>Welcome to Lion Consultation</h1><br>
+<h3>Welcome to Top jobs</h3><br>
  ${Message}
-<a href="searchConsultant.jsp">Click Here</a>
-<a href="<%= request.getServletContext().getContextPath()%>/ViewAppointmentListServlet?username=${sessionScope.username}">Click 22Here</a>
+ 
+ <div class="container">
+ 	<div class="card-deck">
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Add appointment</h5>
+		    <p class="card-text">Click here for add a new appointment</p>
+		    <a href="searchConsultant.jsp" class="card-link"><button type="submit"  class="btn btn-success btn-sm" >Enter</button></a>
+		  </div>
+		  </div>
+	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Appointment List</h5>
+		    <p class="card-text">Click here to See appointment List</p>
+		    <a href="<%= request.getServletContext().getContextPath()%>/ViewAppointmentListServlet?username=${sessionScope.username}" class="card-link"><button type="submit"  class="btn btn-success btn-sm"  >Enter</button></a>
+		  </div>
+   	   </div>
+   	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Available time List</h5>
+		    <p class="card-text">Click here for see Appointment List</p>
+		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
+		  </div>
+	   </div>
+	</div>
+ </div>
+
 </body>
 </html>

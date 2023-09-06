@@ -31,11 +31,11 @@
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                    <span class="h1 fw-bold mb-0">Lion Consultants</span>
+                    <span class="h1 fw-bold mb-0">Top Jobs</span>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login</h5>
-					
+					${Message}
                   <div class="form-outline mb-4">
 	                <label for="username" style="color: blue" >Username</label>
 	                <input type="text" class="form-control" id="username" name="username" required>
@@ -50,10 +50,9 @@
                     <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                   </div>
 
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="registration.jsp"
+                  <p class="mb-5 pb-lg-2" style="color: #5603fc;">Don't have an account? <a href="registration.jsp"
                       style="color: #393f81;">Register here</a></p>
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
+                 
                 </form>
 
               </div>

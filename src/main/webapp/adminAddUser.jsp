@@ -11,6 +11,16 @@
      
 </head>
 <body class="background-image">
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.jsp">Top Jobs</a>
+       
+        <div class="navbar-text ml-auto">
+            Welcome, ${sessionScope.username} (${sessionScope.userType})
+        </div>
+        <div class="navbar-text ml-auto">
+           <a class="nav-link" href="LogoutServlet">Logout</a>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h1>Registration Form</h1>
         <form action="<%= request.getServletContext().getContextPath()%>/AdminAddUserServlet" method="post">

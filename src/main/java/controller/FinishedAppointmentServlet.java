@@ -1,43 +1,40 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AddAppointmentSpecialtyDao;
+import dao.AppointmentListDao;
 import model.Appointment;
 
 /**
- * Servlet implementation class CheckConsultantTime
+ * Servlet implementation class FinishedAppointmentServlet
  */
-@WebServlet("/CheckConsultantTime")
-public class CheckConsultantTime extends HttpServlet {
+@WebServlet("/FinishedAppointmentServlet")
+public class FinishedAppointmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AddAppointmentSpecialtyDao addAppointmentSpecialtyDao;     
+    private AppointmentListDao appointmentListDao;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckConsultantTime() {
+    public FinishedAppointmentServlet() {
         super();
-       addAppointmentSpecialtyDao = new AddAppointmentSpecialtyDao();
+        this.appointmentListDao = new AppointmentListDao();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String consult_username= request.getParameter("consultant");
- 		List<Appointment> availableTime = addAppointmentSpecialtyDao.getAvailablTime(consult_username);
- 		request.setAttribute("availableTime", availableTime);
- 		request.setAttribute("username", consult_username);
- 		RequestDispatcher dispatcher = request.getRequestDispatcher("addAppointmentSpecialty.jsp");
-        dispatcher.forward(request, response);
+		ArrayList<Appointment> appointmentList = appointmentListDao.getFinishedAppointmentList();
+        request.setAttribute("appointmentList", appointmentList);
+        request.getRequestDispatcher("finishedAppointmentList.jsp").forward(request, response);
 	}
 
 	/**

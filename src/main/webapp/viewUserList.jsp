@@ -12,21 +12,10 @@
 </head>
 <body>
 <!-- Navigation Bar -->
-   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Lion Consultants</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
+  
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.jsp">Top Jobs</a>
+       
         <div class="navbar-text ml-auto">
             Welcome, ${sessionScope.username} (${sessionScope.userType})
         </div>
@@ -36,7 +25,7 @@
     </nav>
  
  <div  class="message">
- <h3>Welcome to Lion Consultation,<br></h3>
+ <h3>Welcome to Top jobs,<br></h3>
 	${Message}
 </div>
  

@@ -61,30 +61,38 @@
 <h1>Welcome to Top Jobs</h1>
 ${Message}
 <div class="container">
- 	<div class="card-deck">
-	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Add Available time</h5>
-		    <p class="card-text">Click here for add new time slot</p>
-		    <a href="consultAvailability.jsp" class="card-link"><button type="submit"  class="btn btn-success btn-sm" >Enter</button></a>
-		  </div>
-		  </div>
-	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Appointment List</h5>
-		    <p class="card-text">Click here to See appointment List</p>
-		    <a href="<%= request.getServletContext().getContextPath()%>/ViewConsultAppointmentListServlet?username=${sessionScope.username}" class="card-link"><button type="submit"  class="btn btn-success btn-sm"  >Enter</button></a>
-		  </div>
-   	   </div>
-   	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Available time List</h5>
-		    <p class="card-text">Click here for see Available time</p>
-		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
-		  </div>
-	   </div>
-	</div>
- </div>
+        <h2>Add Available Time</h2>
+        <form action="<%= request.getServletContext().getContextPath()%>/ConsultantAvailabilityServlet" method="post">
+            <div class="form-group">
+                <label for="availableDate">Available Date:</label>
+                <input type="date" class="form-control" name="availableDate" id="availableDate" required>
+            </div>
+            <div class="form-group">
+				    <label for="start_time">Start Time:</label>
+				    <select class="form-control" name="start_time" id="start_time" onchange="updateEndTimeOptions()" required>
+				        <!-- Generate 30-minute time slots -->
+				        <c:forEach var="hour" begin="0" end="23">
+				            <c:forEach var="minute" begin="0" end="30" step="30">
+				                <option>${String.format('%02d', hour)}:${String.format('%02d', minute)}</option>
+				            </c:forEach>
+				        </c:forEach>
+				    </select>
+				</div>
+				
+				<div class="form-group">
+				    <label for="end_time">End Time:</label>
+				    <select class="form-control" name="finish_time" id="finish_time" required>
+				        <!-- Generate 30-minute time slots -->
+				        <c:forEach var="hour" begin="0" end="23">
+				            <c:forEach var="minute" begin="0" end="30" step="30">
+				                <option>${String.format('%02d', hour)}:${String.format('%02d', minute)}</option>
+				            </c:forEach>
+				        </c:forEach>
+				    </select>
+</div>
+            <button type="submit" class="btn btn-primary">Add Availability</button>
+        </form>
+    </div>
    
 </body>
 </html>

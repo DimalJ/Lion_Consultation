@@ -40,13 +40,7 @@
 		    <a href="<%= request.getServletContext().getContextPath()%>/ViewAppointmentListServlet?username=${sessionScope.username}" class="card-link"><button type="submit"  class="btn btn-success btn-sm"  >Enter</button></a>
 		  </div>
    	   </div>
-   	   <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Available time List</h5>
-		    <p class="card-text">Click here for see Appointment List</p>
-		    <a href="#" class="card-link"><button type="submit"  class="btn btn-success btn-sm" id="addUser" name="addUser">Add User</button></a>
-		  </div>
-	   </div>
+   	 
 	</div>
  </div>
 
